@@ -19,7 +19,7 @@ class timezone(object):
         formattedTimestamp = datetime.fromtimestamp(timestamp)
         return formattedTimestamp
 
-    def timezoneParsed(self, formatting=False):
+    def json(self, formatting=False):
         timezoneCleaned = json.loads(self._timezoneInfo.decode())
         timezoneDumped = json.dumps(timezoneCleaned)
         timezoneDstoffset = json.loads(timezoneDumped)["dstOffset"]
@@ -27,11 +27,39 @@ class timezone(object):
         timezoneId = json.loads(timezoneDumped)["timeZoneId"]
         timezoneName = json.loads(timezoneDumped)["timeZoneName"]
 
-        parsed = {"dstOffset": timezoneDstoffset, "rawOffset": timezoneRawoffset, "timeZoneId": timezoneId, "timeZoneName": timezoneName}
+        parsed = {"results": {"dstOffset": timezoneDstoffset, "rawOffset": timezoneRawoffset, "timeZoneId": timezoneId, "timeZoneName": timezoneName}}
 
         if formatting is False:
             return parsed
         return json.dumps(parsed, indent=4)
+
+    def dstOffset(self):
+        timezoneDstCleaned = json.loads(self._timezoneInfo.decode())
+        timezoneDstDumped = json.dumps(timezoneDstCleaned)
+
+        dstOffset = json.loads(timezoneDstDumped)["dstOffset"]
+        return dstOffset
+
+    def rawOffset(self):
+        timezoneRawCleaned = json.loads(self._timezoneInfo.decode())
+        timezoneRawDumped = json.dumps(timezoneRawCleaned)
+
+        rawOffset = json.loads(timezoneRawDumped)["rawOffset"]
+        return rawOffset
+
+    def id(self):
+        timezoneIdCleaned = json.loads(self._timezoneInfo.decode())
+        timezoneIdDumped = json.dumps(timezoneIdCleaned)
+
+        timezoneId = json.loads(timezoneIdDumped)["timeZoneId"]
+        return timezoneId
+
+    def name(self):
+        timezoneNameCleaned = json.loads(self._timezoneInfo.decode())
+        timezoneNameDumped = json.dumps(timezoneNameCleaned)
+
+        timezoneName = json.loads(timezoneNameDumped)["timeZoneName"]
+        return timezoneName
 
     def status(self):
         timezoneStatusCleaned = json.loads(self._timezoneInfo.decode())
