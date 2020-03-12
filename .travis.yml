@@ -5,8 +5,12 @@ python:
   - "3.5"
   - "3.6"
 
+before_install:
+  - python --version
+  - pip install -U pip
+  - pip install -U pytest
+
 install:
   - pip install urllib3
 
-script:
-  - pytest
+script: pytest
