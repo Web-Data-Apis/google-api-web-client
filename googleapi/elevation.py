@@ -8,7 +8,7 @@ class elevation(object):
         elevationRequest = instance.request("GET", f"https://maps.googleapis.com/maps/api/elevation/json?locations={location[0]},{location[1]}&key={auth}")
         self.elevationInfo = elevationRequest.data
 
-    def elevationParsed(self, formatting=False):
+    def json(self, formatting=False):
         elevationFromSeaLevel = json.loads(self.elevationInfo.decode())["results"][0]
         elevationDumped = json.dumps(elevationFromSeaLevel)
         height = json.loads(elevationDumped)["elevation"]
