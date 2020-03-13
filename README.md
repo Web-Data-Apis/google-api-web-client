@@ -21,9 +21,10 @@ import googleapi
 key = "Google api key"
 place = googleapi.places(auth=key, place="Renwick Gallery of the Smithsonian American Art Museum, Washington")
 
+#return place json data parsed
+placeJson = place.json(True)
+
 #return status of api request
 placeStatus = place.status()
 
-#return place json data parsed
-placeJson = place.placesParsed(True)
 ```
