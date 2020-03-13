@@ -22,7 +22,7 @@ key = "Google api key"
 place = googleapi.places(auth=key, place="Renwick Gallery of the Smithsonian American Art Museum, Washington")
 
 #download image from photos.
-placeJson = place.photo(auth=key, download=True)
+placePhoto = place.photo(auth=key, download=True)
 ```
 Downloaded image saved as "photoreference.jpg"
 ![photoreference](https://user-images.githubusercontent.com/57685626/76582781-9f1fc280-64ad-11ea-8c19-71f0f46e5a1a.jpg)
