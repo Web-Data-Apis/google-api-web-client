@@ -92,16 +92,19 @@ class places(object):
 
         photosCleaned = json.loads(self._placesInfo.decode())["candidates"][0]
         photosDumped = json.dumps(photosCleaned)
+        if "photos" in photosCleaned:
 
-        photosJson = json.loads(photosDumped)["photos"][0]
-        photosJsonDumped = json.dumps(photosJson)
+            photosJson = json.loads(photosDumped)["photos"][0]
+            photosJsonDumped = json.dumps(photosJson)
 
-        photosReference = json.loads(photosJsonDumped)["photo_reference"]
+            photosReference = json.loads(photosJsonDumped)["photo_reference"]
         
-        photosWidth = json.loads(photosJsonDumped)["width"]
-        photosUrl = f"https://maps.googleapis.com/maps/api/place/photo?maxwidth={photosWidth}&photoreference={photosReference}&key={auth}"
+            photosWidth = json.loads(photosJsonDumped)["width"]
+            photosUrl = f"https://maps.googleapis.com/maps/api/place/photo?maxwidth={photosWidth}&photoreference={photosReference}&key={auth}"
+        else:
+            photosUrl = None
 
-        if download is True:
+        if download is True and photosUrl:
             photosRequest = photosInstance.request("GET", photosUrl)
 
             with open("photoreference.jpg", "wb") as download_image:
