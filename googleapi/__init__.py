@@ -1,9 +1,9 @@
-from .directions import directions
-from .timezone import timezone
-from .elevation import elevation
-from .places import places
-from .proximity import proximity
-from .translate import translate
+from googleapi.directions import directions
+from googleapi.timezone import timezone
+from googleapi.elevation import elevation
+from googleapi.places import places
+from googleapi.proximity import proximity
+from googleapi.translate import translate
 
 __author__ = "Cru1seControl"
 __version__ = "v1.1.2-alpha"
