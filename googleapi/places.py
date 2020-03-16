@@ -21,7 +21,7 @@ class places(object):
         placesLocation = json.loads(placesGeoDumped)["location"] 
         placesLoDumped = json.dumps(placesLocation)
         
-        if "opening_hours" in placesDumped:
+        if "opening_hours" and "open_now" in placesDumped:
             openingHours = json.loads(placesDumped)["opening_hours"]
             openingDumped = json.dumps(openingHours)
             openNow = json.loads(openingDumped)["open_now"]
