@@ -1,17 +1,16 @@
 # Google Api Python Web Client
 Basic google api python client library. Get information on elevation data or use the directions api to view routes. Note, this project is still in development. If you want more information on googlemaps api's and python go here for [*googlemaps*](https://github.com/googlemaps/google-maps-services-python) module.
 
-## Requirements
-* Python >= 3.6
-* urllib3 <= 1.25.8 
-* Google developers console api key
-
-## Contains
-* Google Cloud Translate Api
-* Google Elevation Api
-* Google Directions Api
-* Google Timezone Api
-* Google Places Api
+## Prerequisites
+* Python 3.x.x [Most recent version](https://www.python.org/ftp/python/3.8.2/python-3.8.2.exe)
+* urllib3 [Most recent version](https://pypi.org/project/urllib3/)
+* [Google Developers API key](https://developers.google.com/places/web-service/get-api-key)
+## Includes
+* Google Cloud Translate Api [Docs](https://cloud.google.com/translate/docs)
+* Google Elevation Api [Docs](https://developers.google.com/maps/documentation/elevation/start)
+* Google Directions Api [Docs](https://developers.google.com/maps/documentation/directions/intro)
+* Google Timezone Api [Docs](https://developers.google.com/maps/documentation/timezone/start)
+* Google Places Api [Docs](https://developers.google.com/places/web-service/intro)
 
 ## Example
 googleapi example using googleapi.places
